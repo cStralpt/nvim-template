@@ -7,7 +7,7 @@ require("notify").setup({
 })
 require("toggleterm").setup({})
 require("hop").setup()
-require('gitsigns').setup()
+require("gitsigns").setup()
 
 local highlights = {
   init = {
@@ -64,14 +64,14 @@ local keymaps = {
   -- ToggleTerm keymaps
   { mode = "n", key = "<F7>", cmd = "<cmd>ToggleTerm direction=float<CR>", opts = { noremap = true, silent = true } },
   { mode = "t", key = "<F7>", cmd = "<cmd>ToggleTerm direction=float<CR>", opts = { noremap = true, silent = true } },
--- hop keymaps
-  { mode = "n", key = "<S-u>", cmd = "<cmd>HopLine<CR>", opts = { noremap = true, silent = true } }, 
+  -- hop keymaps
+  { mode = "n", key = "<S-u>", cmd = "<cmd>HopLine<CR>", opts = { noremap = true, silent = true } },
   { mode = "n", key = "<A-S-f>", cmd = "<cmd>HopPatternBC<CR>", opts = { noremap = false, silent = true } },
-  { mode = "n", key = "<A-f>", cmd = "<cmd>HopPatternAC<CR>", opts = { noremap = false, silent = true } }
-
+  { mode = "n", key = "<A-f>", cmd = "<cmd>HopPatternAC<CR>", opts = { noremap = false, silent = true } },
 }
 
 for _, keymap in ipairs(keymaps) do
   vim.api.nvim_set_keymap(keymap.mode, keymap.key, keymap.cmd, keymap.opts)
 end
 
+vim.cmd("Gitsigns toggle_current_line_blame")
