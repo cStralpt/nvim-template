@@ -68,6 +68,7 @@ local keymaps = {
   { mode = "n", key = "<S-u>", cmd = "<cmd>HopLine<CR>", opts = { noremap = true, silent = true } },
   { mode = "n", key = "<A-S-f>", cmd = "<cmd>HopPatternBC<CR>", opts = { noremap = false, silent = true } },
   { mode = "n", key = "<A-f>", cmd = "<cmd>HopPatternAC<CR>", opts = { noremap = false, silent = true } },
+  { mode = "n", key = "<A-w>", cmd = "<cmd>HopWord<CR>", opts = { noremap = false, silent = true } },
 }
 
 for _, keymap in ipairs(keymaps) do
