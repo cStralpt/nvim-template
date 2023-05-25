@@ -59,6 +59,21 @@ for _, highlight in ipairs(lineColors) do
   )
 end
 
+local terminal_open = false
+
+function ToggleTerminal()
+  if terminal_open then
+    -- Close terminal
+    vim.cmd("terminal close")
+    terminal_open = false
+  else
+    -- Open terminal
+    local split_size = "10"
+    vim.cmd("split term://bash | startinsert | resize " .. split_size)
+    terminal_open = true
+  end
+end
+
 -- my keymaps
 local keymaps = {
   -- ToggleTerm keymaps
@@ -69,6 +84,14 @@ local keymaps = {
   { mode = "n", key = "<A-S-f>", cmd = "<cmd>HopPatternBC<CR>", opts = { noremap = false, silent = true } },
   { mode = "n", key = "<A-f>", cmd = "<cmd>HopPatternAC<CR>", opts = { noremap = false, silent = true } },
   { mode = "n", key = "<A-w>", cmd = "<cmd>HopWord<CR>", opts = { noremap = false, silent = true } },
+  -- { mode = "n", key = "<F6>", cmd = "<cmd>split term://bash<CR>", opts = { noremap = false, silent = true } },
+  { mode = "t", key = "<F6>", cmd = "<cmd>q<CR>", opts = { noremap = false, silent = true } },
+  {
+    mode = "n",
+    key = "<F6>",
+    cmd = "<cmd>lua ToggleTerminal()<CR>",
+    opts = { noremap = false, silent = true },
+  },
 }
 
 for _, keymap in ipairs(keymaps) do
