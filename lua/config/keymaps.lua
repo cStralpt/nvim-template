@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
-vim.keymap.set("n", "<S-u>", "<cmd>HopLine<CR>", { noremap = false, silent = true })
+vim.keymap.set("n", "<S-u>", "<cmd>HopLineStart<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "F", "<cmd>HopPatternBC<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "f", "<cmd>HopPatternAC<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "<A-w>", "<cmd>HopWord<CR>", { noremap = false, silent = true })
