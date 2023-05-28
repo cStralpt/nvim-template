@@ -12,6 +12,8 @@ require("gitsigns").setup()
 require("oil").setup()
 -- require('dressing').setup({})
 vim.cmd("Gitsigns toggle_current_line_blame")
+require("nvim-autopairs").enable()
+
 
 local highlights = {
   init = {
@@ -27,22 +29,24 @@ local highlights = {
     NeoTreeNormalNC = { bg = "NONE", ctermbg = "NONE" },
   },
 }
--- if highlights then
---   for group, hl in pairs(highlights.init) do
---     vim.cmd(
---       "highlight "
---         .. group
---         .. " guifg="
---         .. (hl.gui and hl.gui.fg or "NONE")
---         .. " guibg="
---         .. (hl.gui and hl.gui.bg or "NONE")
---         .. " ctermfg="
---         .. (hl.cterm and hl.cterm.fg or "NONE")
---         .. " ctermbg="
---         .. (hl.cterm and hl.cterm.bg or "NONE")
---     )
---   end
--- end
+
+-- make nvim transparent
+if highlights then
+  for group, hl in pairs(highlights.init) do
+    vim.cmd(
+      "highlight "
+        .. group
+        .. " guifg="
+        .. (hl.gui and hl.gui.fg or "NONE")
+        .. " guibg="
+        .. (hl.gui and hl.gui.bg or "NONE")
+        .. " ctermfg="
+        .. (hl.cterm and hl.cterm.fg or "NONE")
+        .. " ctermbg="
+        .. (hl.cterm and hl.cterm.bg or "NONE")
+    )
+  end
+end
 -- Custom line number color
 local lineColors = {
   { group = "LineNr", guifg = "#bae67e", guibg = "NONE", ctermfg = "darkgrey", ctermbg = "NONE" },
