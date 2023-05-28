@@ -9,7 +9,7 @@ return {
 
       return {
         options = {
-          theme = "koehler",
+          theme = "auto",
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "alpha" } },
         },
