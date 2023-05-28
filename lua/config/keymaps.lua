@@ -11,11 +11,13 @@ vim.keymap.set("n", "t", "<cmd>HopWordCurrentLine<CR>", { noremap = false, silen
 vim.keymap.set("n", "<F7>", "<cmd>ToggleTerm direction=float<CR>", { noremap = false, silent = true })
 vim.keymap.set("t", "<F7>", "<cmd>ToggleTerm direction=float<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePick<CR>", { noremap = false, silent = true, desc = "pick buffer" })
-vim.keymap.set("i", "<C-Enter>", "2o<Esc>k", { noremap = false })
+vim.keymap.set("i", "<C-Enter>", "2o<Esc>k", { noremap = true })
 vim.keymap.set("i", "<C-f>", "<Esc>/", { noremap = false })
 vim.keymap.set("i", "<C-j>", "<cmd>split | resize 10  | terminal<CR><Esc>a", { noremap = false })
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = false })
 vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { noremap = true, desc = "open symbols" })
+vim.keymap.set("i", "<BS>", "<Esc>ldei", { noremap = true, desc = "delete one word backward" })
+vim.keymap.set("i", "<C-l>", "<Del>", { noremap = true, desc = "delete one character backward" })
 
 -- Define keymap to open a new line below the current line in normal mode
 
