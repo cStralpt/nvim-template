@@ -1,8 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 require("nvim-ts-autotag").setup()
-require("nvim-autopairs").setup({})
-require("mini.pairs").setup()
 require("notify").setup({
   background_colour = "#000000",
 })
@@ -12,8 +10,6 @@ require("gitsigns").setup()
 require("oil").setup()
 -- require('dressing').setup({})
 vim.cmd("Gitsigns toggle_current_line_blame")
-require("nvim-autopairs").enable()
-
 
 local highlights = {
   init = {
@@ -67,4 +63,3 @@ for _, highlight in ipairs(lineColors) do
 end
 
 vim.opt.termguicolors = true
-
