@@ -15,7 +15,7 @@ vim.keymap.set("i", "<C-Enter>", "2o<Esc>k", { noremap = true })
 vim.keymap.set("i", "<C-f>", "<Esc>/", { noremap = false })
 vim.keymap.set("i", "<C-j>", "<cmd>split | resize 10  | terminal<CR><Esc>a", { noremap = false })
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = false })
-vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { noremap = true, desc = "open symbols" })
+vim.keymap.set("n", "<leader>cb", "<cmd>Navbuddy<CR>", { noremap = true, desc = "jump to code symbol" })
 vim.keymap.set("i", "<BS>", "<Esc>ldei", { noremap = true, desc = "delete one word backward" })
 vim.keymap.set("i", "<C-l>", "<Del>", { noremap = true, desc = "delete one character backward" })
 
