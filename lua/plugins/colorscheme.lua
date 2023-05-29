@@ -3,18 +3,17 @@ return {
   { "ellisonleao/gruvbox.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "projekt0n/github-nvim-theme" },
-  { "sainnhe/sonokai" },
-  { "marko-cerovac/material.nvim" },
-  { "ray-x/aurora" },
-  { "rafamadriz/neon" },
   { "nxvu699134/vn-night.nvim" },
   { "lmburns/kimbox" },
+  { "olimorris/onedarkpro.nvim" },
+  { "nyoom-engineering/oxocarbon.nvim" },
+  { "navarasu/onedark.nvim" },
 
   -- Configure your theme here
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vn-night", -- default tokyonight
+      colorscheme = "onedark_dark", -- default tokyonight
     },
   },
   {
