@@ -16,10 +16,14 @@ vim.keymap.set("i", "<C-f>", "<Esc>/", { noremap = false })
 vim.keymap.set("i", "<C-j>", "<cmd>split | resize 10  | terminal<CR><Esc>a", { noremap = false })
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = false })
 vim.keymap.set("n", "<leader>cb", "<cmd>Navbuddy<CR>", { noremap = true, desc = "jump to code symbol" })
-vim.keymap.set("i", "<BS>", "<Esc>ldei", { noremap = true, desc = "delete one word backward" })
+vim.keymap.set("i", "<BS>", "norm! ldei", { noremap = true, desc = "delete one word backward" })
 vim.keymap.set("i", "<C-l>", "<Del>", { noremap = true, desc = "delete one character backward" })
+function SelectAllTextInCurrentBuffer()
+  vim.cmd("normal! ggVG")
+  print("Selected all lines")
+end
 
--- Define keymap to open a new line below the current line in normal mode
+vim.api.nvim_set_keymap("i", "<C-a>", "<Cmd>lua SelectAllTextInCurrentBuffer()<CR>", { noremap = true, silent = true })
 
 -- vim.api.nvim_set_keymap('n', '<A-z>', ':lua vim.opt.wrap = true<CR>', { silent = true, noremap = false })
 -- Function to toggle word wrap
@@ -77,3 +81,14 @@ vim.keymap.set("n", "<leader>jat", "<cmd>HopAnywhereBC<CR>", { desc = "jump to t
 
 -- keymaps for git
 -- vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewToggleFiles<CR>",{ desc = "git focus file" })
+-- function captureAndSearch()
+--   local search_text = vim.fn.input("Enter search text: ")
+--   local cmd = "normal! *Ncgn" .. search_text
+--   vim.cmd(cmd)
+-- end
+
+vim.keymap.set("i", "<C-d>", function()
+  local new_text = vim.fn.input("Replace with?: ")
+  local cmd = "normal! *Ncgn" .. new_text
+  vim.cmd(cmd)
+end, { desc = "jump to top - anywhere" })
