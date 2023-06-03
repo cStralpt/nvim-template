@@ -22,6 +22,8 @@ map("i", "<C-d>", function()
   vim.cmd(cmd)
 end, { desc = "ctrl+d vs code alternative" })
 map("i", "<BS>", "<cmd>norm! ldei<CR>", { noremap = true, desc = "delete one word to right" })
+map("i", "<C-S-h>", "<cmd>norm! h<CR>", { noremap = true, desc = "move to left one character" })
+-- map("i", "<C-L>", "<cmd>norm! l<CR>", { remap = false, desc = "move to right one character" })
 map("i", "<C-f>", "<Esc>/", { noremap = false })
 function ToggleWordWrap()
   if vim.wo.wrap then
@@ -32,6 +34,22 @@ function ToggleWordWrap()
     print("Word wrap enabled")
   end
 end
+
+--clipboard keymaps
+local function copyToClipBoard()
+  vim.cmd("set clipboard+=unnamedplus")
+  vim.cmd("norm! y")
+  vim.cmd("set clipboard-=unnamedplus")
+  print("copied!")
+end
+
+map("i", "<C-a>", function()
+  vim.cmd("norm! ggVG")
+  print("Selected all lines")
+end, { remap = false, desc = "select all lines in buffer" })
+map("v", "<C-c>", function()
+  copyToClipBoard()
+end, { remap = false, desc = "copy selected text" })
 
 -- Map a keybinding to toggle word wrap
 map("n", "<leader>ct", ":lua ToggleWordWrap()<CR>", { noremap = true, silent = true, desc = "toggle word wrap" })

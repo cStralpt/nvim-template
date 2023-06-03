@@ -16,6 +16,7 @@ else
     set shell=bash
   ]])
 end
+opt.clipboard = ""
 
 -- --opt.highlight = "LineNumber:LineNr:Red"
 -- vim.api.nvim_command("highlight LineNr guifg=Red ctermfg=Red")
