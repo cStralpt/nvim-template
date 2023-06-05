@@ -33,7 +33,7 @@ map("i", "<C-d>", function()
   local cmd = "normal! *Ncgn" .. new_text
   vim.cmd(cmd)
 end, { desc = "ctrl+d vs code alternative" })
-map("i", "<BS>", "<cmd>norm! ldei<CR>", { noremap = true, desc = "delete next word to right" })
+map("i", "<BS>", "<cmd>norm! dw<CR>", { noremap = true, desc = "delete next word to right" })
 map("i", "<C-f>", "<Esc>/", { noremap = false })
 function ToggleWordWrap()
   if vim.wo.wrap then
