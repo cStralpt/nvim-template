@@ -14,16 +14,26 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 end
-map("n", "<F7>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
-map("t", "<F7>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
+--terminal
+local Util = require("lazyvim.util")
+local lazyterm = function()
+  Util.float_term(nil, { cwd = Util.get_root() })
+end
+map("n", "<C-j>", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "open floating terminal", noremap = false })
+map("t", "<C-j>", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "open floating terminal", noremap = false })
+map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
+map("t", "<C-_>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+
+map("i", "<C-j>", "<cmd>norm! o<CR>", { desc = "create new line under cursor", noremap = true })
+map("i", "<C-k>", "<cmd>norm! O<CR>", { desc = "create new line up of cursor", noremap = true })
+-- map("i", "<C-H>", "<cmd>norm! h<CR>", { desc = "move to right one character", remap = true })
+
 map("i", "<C-d>", function()
   local new_text = vim.fn.input("Replace with?: ")
   local cmd = "normal! *Ncgn" .. new_text
   vim.cmd(cmd)
 end, { desc = "ctrl+d vs code alternative" })
-map("i", "<BS>", "<cmd>norm! ldei<CR>", { noremap = true, desc = "delete one word to right" })
-map("i", "<C-S-h>", "<cmd>norm! h<CR>", { noremap = true, desc = "move to left one character" })
--- map("i", "<C-L>", "<cmd>norm! l<CR>", { remap = false, desc = "move to right one character" })
+map("i", "<BS>", "<cmd>norm! ldei<CR>", { noremap = true, desc = "delete next word to right" })
 map("i", "<C-f>", "<Esc>/", { noremap = false })
 function ToggleWordWrap()
   if vim.wo.wrap then
