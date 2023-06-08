@@ -19,8 +19,8 @@ local Util = require("lazyvim.util")
 local lazyterm = function()
   Util.float_term(nil, { cwd = Util.get_root() })
 end
-map("n", "<C-j>", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "open floating terminal", noremap = false })
-map("t", "<C-j>", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "open floating terminal", noremap = false })
+map("n", "<C-j>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
+map("t", "<C-j>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
 map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
 map("t", "<C-_>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
