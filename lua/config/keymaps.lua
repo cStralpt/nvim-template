@@ -14,19 +14,8 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 end
---terminal
-local Util = require("lazyvim.util")
-local lazyterm = function()
-  Util.float_term(nil, { cwd = Util.get_root() })
-end
-map("n", "<C-j>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
+map("i", "<C-j>", "<cmd>ToggleTerm direction=float<CR><Esc>i", { desc = "open floating terminal", noremap = false })
 map("t", "<C-j>", "<cmd>ToggleTerm direction=float<CR>", { desc = "open floating terminal", noremap = false })
-map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
-map("t", "<C-_>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-
-map("i", "<C-j>", "<cmd>norm! o<CR>", { desc = "create new line under cursor", noremap = true })
-map("i", "<C-k>", "<cmd>norm! O<CR>", { desc = "create new line up of cursor", noremap = true })
--- map("i", "<C-H>", "<cmd>norm! h<CR>", { desc = "move to right one character", remap = true })
 
 map("i", "<C-d>", function()
   local new_text = vim.fn.input("Replace with?: ")
